@@ -4,7 +4,7 @@ Hedera DEX is a Gitcoin Global Communities hackathon project.
 
 Contracts were deployed on Hedera using [Console](https://console.hashingsystems.com/) and all interactions with the smart contracts are done using [Composer](https://chrome.google.com/webstore/detail/composer-for-hedera-hashg/hdjnnemgikeoehneddegfcmkljenlean)
 
-# Technical
+# Deploying & Running
 1. You can find exchange and ERC20 contracts in the `contracts` folder.
 2. You can find web-app in `dex-app` folder.
 
