@@ -908,7 +908,9 @@
               //deposit token balance
               async function depositTokenBalanceInHedera(depositAmount){
                 toastr.info("Approving from token contract");
-                var tokenParam = window.hash.accountIdToEthAddress(tokenAddress);
+                console.log(tokenAddress);
+                  var tokenParam = window.hash.accountIdToEthAddress("0.0.140062");
+                  console.log(tokenParam);
                 let dataApprove = {
                     contractid:tokenAddress,
                     memo:"Approving token balance",
@@ -916,6 +918,8 @@
                     amount:0,
                     abi:`[{"constant":false,"name":"approve", "inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}], "outputs":[{"name":"","type":"bool"}], "payable":false,"stateMutability":"nonpayable","type":"function"}]`
                 }
+
+                console.log(dataApprove);
 
                 var res1 = await window.hash.triggerSmartContract(dataApprove)
                 console.log(res1);
@@ -937,15 +941,16 @@
               //deposit ethb balance
               async function depositETHBBalanceInHedera(depositAmount){
                 toastr.info("Approving from token contract");
-                var tokenParam = window.hash.accountIdToEthAddress("0.0.139693");
+                var tokenParam = window.hash.accountIdToEthAddress("0.0.140062");
                 let dataApprove = {
-                    contractid:tokenAddress,
+                    contractid:"0.0.139693",
                     memo:"Approving token balance",
                     params:'["'+tokenParam+'", '+depositAmount+']',
                     amount:0,
                     abi:`[{"constant":false,"name":"approve", "inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}], "outputs":[{"name":"","type":"bool"}], "payable":false,"stateMutability":"nonpayable","type":"function"}]`
                 }
-
+                console.log(tokenParam);
+                console.log(dataApprove);
                 var res1 = await window.hash.triggerSmartContract(dataApprove)
                 console.log(res1);
                 toastr.info("Depositing in DEX contract");
